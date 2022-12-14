@@ -13,9 +13,7 @@ def parseResponse(gpt_out_string):
     array = json.loads(gpt_out_string)["message"]["content"]["parts"]
     return array[0] if len(array) == 1 else ""
 
-### TODO: be a fucking try hard
-# - add conversion id i get back from open AI so it has context
-# - don't want for all the tokens to come back before we start talking => talk as they come back
+# TODO add conversion id i get back from open AI so it has context
 def gpt_resp_iter(new_tokens):
     # try: 
         with requests.post('https://chat.openai.com/backend-api/conversation',
